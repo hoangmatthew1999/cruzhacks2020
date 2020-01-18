@@ -33,15 +33,23 @@ function CardBody(props){
       </Card.Body>
   )
 }
-function MajorDiv(){
+function MajorDiv(props){
   return(
+    <ListGroup.Item>
     <Card>
       <Card.Header>Health</Card.Header>
       <ListGroup>
-      <ListGroup.Item><CardBody title = "health" description = "Is it safe to breath in smoke"/></ListGroup.Item>
+      <ListGroup.Item>
+        <Card.Body>
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Text>{props.description}</Card.Text>
+        <Button variant="primary">View full listing</Button>
+      </Card.Body>
+      </ListGroup.Item>
       <ListGroup.Item><CardBody title="where do you find flashlights"/></ListGroup.Item>
       </ListGroup>
     </Card>
+    </ListGroup.Item>
   )
 }
 function BigCard(){
@@ -58,10 +66,10 @@ function App() {
     <div className="App">
       <Router>
      <Navigation/>
-     <MajorDiv/>
+     {/* <MajorDiv/> */}
      <Switch>
-          <Route path="/project">
-            <MajorDiv/>
+          <Route path="/projects">
+            <MajorDiv title = "hello"description = "asking for civil engineers specializing in statics to help rebuild Kingala"/>
           </Route>
           <Route path="/forum">
             <MajorDiv />
