@@ -16,14 +16,14 @@ function Navigation(){
   </Navbar>
   )
 }
-function CardBody(){
+function CardBody(props){
   return (
     <Card.Body>
-        <Card.Title>Special title treatment</Card.Title>
+<Card.Title>{props.title}</Card.Title>
         <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
+          {props.description}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">View full listing</Button>
       </Card.Body>
   )
 }
@@ -31,12 +31,11 @@ function MajorDiv(){
   return(
     <Card>
       <Card.Header>Featured</Card.Header>
-
       <ListGroup>
-      <ListGroup.Item><CardBody/></ListGroup.Item>
+      <ListGroup.Item><CardBody title = "hello" description = "a little dog"/></ListGroup.Item>
       <ListGroup.Item><CardBody/></ListGroup.Item>
       </ListGroup>
-  </Card>
+    </Card>
   )
 }
 function BigCard(){
