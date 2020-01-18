@@ -20,7 +20,7 @@ function Navigation(){
       <Nav.Link href="/talk-to-professionals">Talk to professionals</Nav.Link>
     </Nav>
   </Navbar>
-  )z
+  )
 }
 function CardBody(props){
   return (
@@ -44,20 +44,30 @@ function MajorDiv(){
     </Card>
   )
 }
-// function BigCard(){
-//   return(
-//   <div>
-//     <ListGroup.Item><MajorDiv/></ListGroup.Item>
-//     <ListGroup.Item><MajorDiv/></ListGroup.Item>
-//     <ListGroup.Item><MajorDiv/></ListGroup.Item>
-//   </div>
-//   )
-// }
+function BigCard(){
+  return(
+  <div>
+    <ListGroup.Item><MajorDiv/></ListGroup.Item>
+    <ListGroup.Item><MajorDiv/></ListGroup.Item>
+    <ListGroup.Item><MajorDiv/></ListGroup.Item>
+  </div>
+  )
+}
 function App() {
   return (
     <div className="App">
+      <Router>
      <Navigation/>
      <MajorDiv/>
+     <Switch>
+          <Route path="/project">
+            <MajorDiv/>
+          </Route>
+          <Route path="/forum">
+            <MajorDiv />
+          </Route>
+      </Switch>
+     </Router>
       </div>
   );
 }
