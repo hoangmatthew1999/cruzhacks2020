@@ -29,11 +29,11 @@ function CardBody(props){
         <Card.Text>
           {props.description}
         </Card.Text>
-        <Button variant="primary">View full listing</Button>
+        <Link to = "/projects/full-listing"><Button variant="primary">View full listing</Button></Link>
       </Card.Body>
   )
 }
-function MajorDiv(props){
+function ForumDiv(props){
   return(
     <ListGroup.Item>
     <Card>
@@ -43,7 +43,27 @@ function MajorDiv(props){
         <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>{props.description}</Card.Text>
-        <Button variant="primary">View full listing</Button>
+        <Link to = "/projects/full-listing"><Button variant="primary" onClick = {FullListing}>View full listing</Button></Link>
+      </Card.Body>
+      </ListGroup.Item>
+      <ListGroup.Item><CardBody title="where do you find flashlights"/></ListGroup.Item>
+      </ListGroup>
+    </Card>
+    </ListGroup.Item>
+  )
+}
+
+function ProjectsDiv(props){
+  return(
+    <ListGroup.Item>
+    <Card>
+      <Card.Header>Health</Card.Header>
+      <ListGroup>
+      <ListGroup.Item>
+        <Card.Body>
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Text>{props.description}</Card.Text>
+        <Link to = "/projects/full-listing"><Button variant="primary">View full listing</Button></Link>
       </Card.Body>
       </ListGroup.Item>
       <ListGroup.Item><CardBody title="where do you find flashlights"/></ListGroup.Item>
@@ -55,10 +75,25 @@ function MajorDiv(props){
 function BigCard(){
   return(
   <div>
-    <ListGroup.Item><MajorDiv/></ListGroup.Item>
-    <ListGroup.Item><MajorDiv/></ListGroup.Item>
-    <ListGroup.Item><MajorDiv/></ListGroup.Item>
+    <ListGroup.Item><ForumDiv/></ListGroup.Item>
+    <ListGroup.Item><ForumDiv/></ListGroup.Item>
+    <ListGroup.Item><ForumDiv/></ListGroup.Item>
   </div>
+  )
+}
+function FullListing(){
+  return(
+    <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src="holder.js/100px180" />
+  <Card.Body>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text>
+    <Button variant="primary">Go somewhere</Button>
+  </Card.Body>
+</Card>
   )
 }
 function App() {
@@ -68,11 +103,12 @@ function App() {
      <Navigation/>
      {/* <MajorDiv/> */}
      <Switch>
+      <Route path="/projects/full-listing" component = {FullListing }/>
           <Route path="/projects">
-            <MajorDiv title = "hello"description = "asking for civil engineers specializing in statics to help rebuild Kingala"/>
+            <ForumDiv title = "hello"description = "asking for civil engineers specializing in statics to help rebuild Kingala"/>
           </Route>
           <Route path="/forum">
-            <MajorDiv />
+            <ForumDiv title = "my self"/>
           </Route>
       </Switch>
      </Router>

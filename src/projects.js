@@ -61,5 +61,15 @@ function ProjectApp() {
     </div>
   );
 }
-
-export default ProjectApp;
+class Welcome extends React.Component {
+  render() {
+    return(
+    <div>
+      <ListGroup.Item><MajorDiv/></ListGroup.Item>
+      <ListGroup.Item><MajorDiv/></ListGroup.Item>
+      <ListGroup.Item><MajorDiv/></ListGroup.Item>
+    </div>
+    ) 
+  }
+}
+export default Welcome;
